@@ -80,11 +80,15 @@ body {
   cursor: pointer;
 }
 
-.cell:hover {
+.active:hover {
   transform: scale(1.05); /* slight grow */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* elevated shadow */
   z-index: 1; /* ensure it's above others if overlapping */
   animation-duration: 1000ms;
+}
+
+.inactive {
+  cursor: default;
 }
 
 .chicken {
@@ -95,4 +99,13 @@ body {
 .banana {
   background-color: #7D884F;
   border: 2px solid #606C38;
+}
+
+.reset-button {
+  background-color: #EDE6B9;
+  border: 2px solid #D6CF99;
+  border-radius: 2rem;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.3rem 1.5rem;
 }
