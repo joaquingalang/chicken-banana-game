@@ -5,10 +5,11 @@ import banana from "../../public/banana.webp";
 interface Props {
   index: number;
   type: "chicken" | "banana";
+  isClickable: boolean,
   onClick: () => void;
 }
 
-function Cell({ index, type, onClick }: Props) {
+function Cell({ index, type, isClickable, onClick }: Props) {
   let [isClicked, setIsClicked] = useState(false);
 
   const getImage = (type: string) => {
@@ -16,19 +17,24 @@ function Cell({ index, type, onClick }: Props) {
     return <img height="50" src={image} alt="type" />;
   };
 
-  return (
-    <div
-      className={
-        "cell" +
-        (isClicked && type === "chicken"
+  const getCellClasses = () => {
+    const active = (isClickable && !isClicked) ? "active" : "inactive";
+    const cellType = (isClicked && type === "chicken"
           ? " chicken"
           : isClicked && type === "banana"
           ? " banana"
-          : "")
-      }
+          : "");
+    return `cell ${active} ${cellType}`;
+  }
+
+  return (
+    <div
+      className={getCellClasses()}
       onClick={() => {
-        onClick();
-        setIsClicked(true);
+        if (isClickable && !isClicked) {
+          onClick();
+          setIsClicked(true);
+        }
       }}
     >
       {isClicked ? getImage(type) : index}
