@@ -51,16 +51,6 @@ body {
   align-items: center;
 }
 
-.chicken {
-  background-color: #DDA15E;
-  border: 2px solid #BC6C25;
-}
-
-.banana {
-  background-color: #7D884F;
-  border: 2px solid #606C38;
-}
-
 .turn-taker {
   border-radius: 2rem;
   padding: 0;
@@ -91,6 +81,18 @@ body {
 }
 
 .cell:hover {
-  background-color: #FEFAE0;
-  animation-duration: 500ms;
+  transform: scale(1.05); /* slight grow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* elevated shadow */
+  z-index: 1; /* ensure it's above others if overlapping */
+  animation-duration: 1000ms;
+}
+
+.chicken {
+  background-color: #DDA15E;
+  border: 2px solid #BC6C25;
+}
+
+.banana {
+  background-color: #7D884F;
+  border: 2px solid #606C38;
 }
