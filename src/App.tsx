@@ -16,7 +16,7 @@ function App() {
   // State Variables
   const chickens = Array(18).fill("chicken");
   const banana = Array(18).fill("banana");
-  const [gameCells, setGameCells] = useState(() => shuffle([...chickens, ...banana]));
+  const [gameCells] = useState(() => shuffle([...chickens, ...banana]));
   let [turnTaker, setTurnTaker] = useState("chicken");
   let [chickenScore, setChickenScore] = useState(0);
   let [bananaScore, setBananaScore] = useState(0);
